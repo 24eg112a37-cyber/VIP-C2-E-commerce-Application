@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ShopEZ Store</title>
+
+<style>
+body{
+    font-family: Arial;
+    background:#ffeb3b;   /* 🟡 YELLOW BACKGROUND */
+    text-align:center;
+}
+
+/* CART */
+.cart{
+    position:fixed;
+    top:15px;
+    right:15px;
+    background:white;
+    padding:10px 15px;
+    border-radius:20px;
+    box-shadow:0 0 10px gray;
+    color:red;
+    font-size:18px;
+}
+
+/* PRODUCT CARD */
+.product{
+    background:white;
+    width:280px;
+    margin:20px auto;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+
+.product img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+button{
+    padding:8px;
+    margin:5px;
+    border:none;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+.add{
+    background:green;
+    color:white;
+}
+
+.buy{
+    background:blue;
+    color:white;
+}
+
+/* POPUP */
+.popup{
+    display:none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 15px black;
+    z-index:1000;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🛒 ShopEZ Store</h1>
+
+<!-- CART -->
+<div class="cart">
+❤️ Cart: <span id="count">0</span>
+</div>
+
+<!-- PRODUCTS -->
+
+<div class="product">
+    <img src="https://m.media-amazon.com/images/I/61-r9zOKBCL._SL1500_.jpg">
+    <h2>Mobile Phone</h2>
+
+    <p>₹80,000</p>
+    <p>🔥 Discount: 10% OFF | Offer: ₹8000 OFF</p>
+
+    <button class="add" onclick="addToCart()">Add to Cart</button>
+    <button class="buy" onclick="buyNow()">Buy Now</button>
+
+    <p style="margin-top:10px; font-size:13px;">
+        Latest smartphone with high camera quality, fast performance and long battery backup.
+    </p>
+</div>
+
+<div class="product">
+    <img src="https://m.media-amazon.com/images/I/61Dw5Z8LzJL._SL1500_.jpg">
+    <h2>Laptop</h2>
+
+    <p>₹50,000</p>
+    <p>🔥 Discount: 15% OFF | Offer: ₹5000 OFF</p>
+
+    <button class="add" onclick="addToCart()">Add to Cart</button>
+    <button class="buy" onclick="buyNow()">Buy Now</button>
+
+    <p style="margin-top:10px; font-size:13px;">
+        High performance laptop for study, gaming, coding and office work.
+    </p>
+</div>
+
+<div class="product">
+    <img src="https://m.media-amazon.com/images/I/61CGHv6kmWL._SL1500_.jpg">
+    <h2>Headphones</h2>
+
+    <p>₹2,000</p>
+    <p>🔥 Discount: 20% OFF | Offer: Buy 1 Get 1</p>
+
+    <button class="add" onclick="addToCart()">Add to Cart</button>
+    <button class="buy" onclick="buyNow()">Buy Now</button>
+
+    <p style="margin-top:10px; font-size:13px;">
+        Deep bass headphones with crystal clear sound for music and gaming lovers.
+    </p>
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+    <h2>🎉 Thank You ❤</h2>
+    <p>Thanks for shopping with ShopEZ</p>
+    <p>Visit again 😊</p>
+</div>
+
+<script>
+let count = 0;
+
+// ADD TO CART
+function addToCart(){
+    count++;
+    document.getElementById("count").innerText = count;
+}
+
+// BUY NOW POPUP
+function buyNow(){
+    let pop = document.getElementById("popup");
+    pop.style.display = "block";
+
+    setTimeout(()=>{
+        pop.style.display = "none";
+    },2000);
+}
+</script>
+
+</body>
+</html>
